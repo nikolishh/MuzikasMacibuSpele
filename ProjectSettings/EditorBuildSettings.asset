@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InstrumentGame.unity
     guid: 301147ec1dcfd23468a5bb20a9b16c26
+  - enabled: 1
+    path: Assets/Scenes/InstrumentGame2.unity
+    guid: 5f4bafc8c90eb1d45b79faa78df5ae9f
   m_configObjects: {}

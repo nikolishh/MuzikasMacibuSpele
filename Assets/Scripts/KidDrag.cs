@@ -6,7 +6,7 @@ public class KidDrag : MonoBehaviour
 {
     private Vector3 startPosition;
     private bool isDragging = false;
-    private bool isPlaced = false; // NEW
+    public bool isPlaced = false; // NEW
 
     public string correctInstrument; // set in Inspector
 
