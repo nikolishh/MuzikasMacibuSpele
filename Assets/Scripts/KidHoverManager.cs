@@ -36,15 +36,20 @@ public class KidHoverManager : MonoBehaviour
 
         //Check if mouse is over kid (world space)
         Vector3 mousePos = Input.mousePosition;
-        Vector3 kidScreenPos = Camera.main.WorldToScreenPoint(kid.position);
+        // Get the kid's collider
+        Collider2D kidCollider = kid.GetComponent<Collider2D>();
+        Bounds bounds = kidCollider.bounds;
 
-        float kidWidth = 50f;   // approximate kid size in pixels
-        float kidHeight = 50f;
+        // Convert world bounds to screen space
+        Vector3 min = Camera.main.WorldToScreenPoint(bounds.min);
+        Vector3 max = Camera.main.WorldToScreenPoint(bounds.max);
 
-        bool overKid = mousePos.x >= kidScreenPos.x - kidWidth / 2 &&
-                       mousePos.x <= kidScreenPos.x + kidWidth / 2 &&
-                       mousePos.y >= kidScreenPos.y - kidHeight / 2 &&
-                       mousePos.y <= kidScreenPos.y + kidHeight / 2;
+        // Check if mouse is inside real collider bounds
+        bool overKid =
+            mousePos.x >= min.x &&
+            mousePos.x <= max.x &&
+            mousePos.y >= min.y &&
+            mousePos.y <= max.y;
 
         //Check if mouse is over bubble (UI)
         RectTransform bubbleRect = thoughtBubble.GetComponent<RectTransform>();
