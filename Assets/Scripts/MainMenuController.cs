@@ -12,4 +12,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("InstrumentGame2");  // EXACT scene name
     }
+
+    public void LoadRhythmGame()
+    {
+        SceneManager.LoadScene("RhythmGame");  // EXACT scene name
+    }
 }
