@@ -17,4 +17,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("RhythmGame");  // EXACT scene name
     }
+
+    public void LoadQuizGame()
+    {
+        SceneManager.LoadScene("QuizGame");  // EXACT scene name
+    }
 }

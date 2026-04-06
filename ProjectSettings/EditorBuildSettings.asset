@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RhythmGame.unity
     guid: 460441b6d0aaea84f92409bf3bc4aafa
+  - enabled: 1
+    path: Assets/Scenes/QuizGame.unity
+    guid: 5480d723a7eb91f479b2dd6d3577fd74
   m_configObjects: {}
