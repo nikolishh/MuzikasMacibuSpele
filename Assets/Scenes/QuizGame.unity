@@ -641,6 +641,52 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &762744120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762744122}
+  - component: {fileID: 762744121}
+  m_Layer: 0
+  m_Name: EndPanelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &762744121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762744120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d89d1b544a64148b27f656ee0329ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 2025495695}
+  finalScoreText: {fileID: 688447178}
+--- !u!4 &762744122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762744120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1061.9073, y: 479.18842, z: -5.696311}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862580196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,7 +2122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2025495696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2428,6 +2474,7 @@ MonoBehaviour:
   scoreText: {fileID: 688447178}
   yesButton: {fileID: 1267562727}
   noButton: {fileID: 1202062422}
+  endPanel: {fileID: 0}
   timePerQuestion: 10
   questionSprites:
   - {fileID: 21300000, guid: 409ba5825900be74f8542e076e56ec71, type: 3}
@@ -2463,7 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f579fa7ffea1a49a2b417fb8077ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPanel: {fileID: 2025495695}
+  endPanel: {fileID: 762744120}
   finalScoreText: {fileID: 2015069805}
   totalQuestions: 5
   score: 0
@@ -2475,3 +2522,4 @@ SceneRoots:
   - {fileID: 234980225}
   - {fileID: 266599035}
   - {fileID: 2070093983}
+  - {fileID: 762744122}

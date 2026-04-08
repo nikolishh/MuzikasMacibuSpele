@@ -12,6 +12,7 @@ public class QuizManager : MonoBehaviour
     public TMP_Text scoreText;
     public Button yesButton;
     public Button noButton;
+    public QuizEndPanel endPanel;
 
     [Header("Settings")]
     public float timePerQuestion = 5f;
@@ -60,13 +61,20 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            questionImage.gameObject.SetActive(false);
-            timerText.text = "";
-            questionImage.gameObject.SetActive(false);
-            yesButton.interactable = false;
-            noButton.interactable = false;
-            scoreText.text = "Final Score: " + score;
+            EndGame();
         }
+    }
+
+    void EndGame()
+    {
+        isAnswering = false;
+
+        questionImage.gameObject.SetActive(false);
+        yesButton.gameObject.SetActive(false);
+        noButton.gameObject.SetActive(false);
+        timerText.text = "";
+
+        endPanel.ShowEndPanel(score);
     }
 
     void Answer(bool playerAnswer)
