@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
+
     [Header("UI Elements")]
     public Image questionImage;
     public TMP_Text timerText;
     public TMP_Text scoreText;
     public Button yesButton;
     public Button noButton;
-    public QuizEndPanel endPanel;
+
+    [Header("End Panel")]
+    public GameObject endPanel;
+    public TMP_Text finalScoreText;
 
     [Header("Settings")]
     public float timePerQuestion = 5f;
@@ -26,11 +31,28 @@ public class QuizManager : MonoBehaviour
     public bool[] answers;
     private int currentQuestion = 0;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+
+    [Header("Effects")]
+    public ParticleSystem confetti;
+
     void Start()
     {
+        Debug.Log("Start is running");
+
+        questionImage.gameObject.SetActive(true);
+        yesButton.gameObject.SetActive(true);
+        noButton.gameObject.SetActive(true);
+
         yesButton.onClick.AddListener(() => Answer(true));
         noButton.onClick.AddListener(() => Answer(false));
+
         scoreText.text = "Score: 0";
+        endPanel.SetActive(false);
+
         NextQuestion();
     }
 
@@ -74,7 +96,9 @@ public class QuizManager : MonoBehaviour
         noButton.gameObject.SetActive(false);
         timerText.text = "";
 
-        endPanel.ShowEndPanel(score);
+        endPanel.SetActive(true);
+
+        finalScoreText.text = "Final Score: " + score;
     }
 
     void Answer(bool playerAnswer)
@@ -87,9 +111,39 @@ public class QuizManager : MonoBehaviour
         {
             score++;
             scoreText.text = "Score: " + score;
+
+            audioSource.PlayOneShot(correctSound);
+            PlayConfetti();
+        }
+        else
+        {
+            audioSource.PlayOneShot(wrongSound);
         }
 
         currentQuestion++;
-        NextQuestion();
+        Invoke("NextQuestion", 0.5f);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("QuizGame");
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    void PlayConfetti()
+    {
+        if (confetti != null)
+        {
+            confetti.Play();
+        }
     }
 }
