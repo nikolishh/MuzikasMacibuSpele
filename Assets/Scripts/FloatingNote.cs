@@ -7,9 +7,15 @@ public class FloatingNote : MonoBehaviour
     public float speed = 2f;
     public float rotationSpeed = 100f;
     public Vector2 direction = Vector2.right;
+    public bool isPaused;
 
     void Update()
     {
+        transform.Translate(direction * speed * Time.deltaTime, Space.World);
+        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+
+        if (isPaused) return;
+
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
         transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
     }

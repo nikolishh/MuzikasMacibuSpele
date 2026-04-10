@@ -34,7 +34,7 @@ public class NoteSpawner : MonoBehaviour
         sr.sprite = noteSprites[Random.Range(0, noteSprites.Length)];
 
         Color c = sr.color;
-        c.a = Random.Range(0.6f, 0.9f);
+        c.a = Random.Range(0.8f, 1f);
         sr.color = c;
 
         sr.sprite = noteSprites[Random.Range(0, noteSprites.Length)];
