@@ -37,7 +37,7 @@ public class QuizManager : MonoBehaviour
     public AudioClip wrongSound;
 
     [Header("Effects")]
-    public ParticleSystem confetti;
+    public GameObject confettiPrefab;
 
     void Start()
     {
@@ -50,7 +50,7 @@ public class QuizManager : MonoBehaviour
         yesButton.onClick.AddListener(() => Answer(true));
         noButton.onClick.AddListener(() => Answer(false));
 
-        scoreText.text = "Score: 0";
+        scoreText.text = "PUNKTI: 0";
         endPanel.SetActive(false);
 
         NextQuestion();
@@ -61,7 +61,7 @@ public class QuizManager : MonoBehaviour
         if (isAnswering)
         {
             timer -= Time.deltaTime;
-            timerText.text = "Time: " + Mathf.Ceil(timer).ToString();
+            timerText.text = "LAIKS: " + Mathf.Ceil(timer).ToString();
 
             if (timer <= 0)
             {
@@ -80,6 +80,8 @@ public class QuizManager : MonoBehaviour
             questionImage.sprite = questionSprites[currentQuestion];
             timer = timePerQuestion;
             isAnswering = true;
+            questionImage.sprite = questionSprites[currentQuestion];
+            questionImage.GetComponent<ImagePop>().Pop();
         }
         else
         {
@@ -98,7 +100,7 @@ public class QuizManager : MonoBehaviour
 
         endPanel.SetActive(true);
 
-        finalScoreText.text = "Final Score: " + score;
+        finalScoreText.text = "PUNKTI: " + score;
     }
 
     void Answer(bool playerAnswer)
@@ -110,10 +112,10 @@ public class QuizManager : MonoBehaviour
         if (playerAnswer == answers[currentQuestion])
         {
             score++;
-            scoreText.text = "Score: " + score;
+            scoreText.text = "PUNKTI: " + score;
 
             audioSource.PlayOneShot(correctSound);
-            PlayConfetti();
+            PlayConfetti(playerAnswer);
         }
         else
         {
@@ -139,11 +141,9 @@ public class QuizManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    void PlayConfetti()
+    void PlayConfetti(bool playerAnswer)
     {
-        if (confetti != null)
-        {
-            confetti.Play();
-        }
+        Vector3 spawnPos = playerAnswer ? yesButton.transform.position : noButton.transform.position;
+        Instantiate(confettiPrefab, yesButton.transform.position, Quaternion.identity, yesButton.transform.parent);
     }
 }

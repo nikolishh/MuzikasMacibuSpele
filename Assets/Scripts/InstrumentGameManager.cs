@@ -25,6 +25,8 @@ public class InstrumentGameManager : MonoBehaviour
             }
         }
 
+        LevelProgress.UnlockLevel("InstrumentGame", 1);
+
         endPanel.SetActive(true);
         enabled = false;
     }

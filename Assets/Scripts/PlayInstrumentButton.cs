@@ -17,7 +17,6 @@ public class PlayInstrumentButton : MonoBehaviour
         }
         else if (instrumentSound != null)
         {
-            // fallback if no AudioSource: play at the current position
             AudioSource.PlayClipAtPoint(instrumentSound, transform.position);
         }
     }

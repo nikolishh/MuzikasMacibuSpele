@@ -10,6 +10,7 @@ public class LevelPanelManager : MonoBehaviour
     public Text titleText;
 
     public Button[] levelButtons;
+    public GameObject[] lockIcons;
 
     private string currentGame;
 
@@ -29,6 +30,8 @@ public class LevelPanelManager : MonoBehaviour
 
     void SetupLevels()
     {
+        int unlockedLevel = LevelProgress.GetUnlockedLevel(currentGame);
+
         for (int i = 0; i < levelButtons.Length; i++)
         {
             int levelIndex = i + 1;
@@ -36,7 +39,19 @@ public class LevelPanelManager : MonoBehaviour
             levelButtons[i].GetComponentInChildren<Text>().text = "Level " + levelIndex;
 
             levelButtons[i].onClick.RemoveAllListeners();
-            levelButtons[i].onClick.AddListener(() => LoadLevel(levelIndex));
+
+            int capturedIndex = levelIndex;
+
+            bool isUnlocked = levelIndex <= unlockedLevel;
+
+            levelButtons[i].interactable = isUnlocked;
+
+            if (lockIcons != null && i < lockIcons.Length)
+            {
+                lockIcons[i].SetActive(!isUnlocked);
+            }
+
+            levelButtons[i].onClick.AddListener(() => LoadLevel(capturedIndex));
         }
     }
 

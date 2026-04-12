@@ -17,17 +17,13 @@ public class KidHoverManager : MonoBehaviour
         kidDrag = kid.GetComponent<KidDrag>();
         if (kidDrag == null)
         {
-            Debug.LogError("KidDrag component not found on kid!");
+            Debug.LogError("drag doesnt work");
         }
     }
 
     void Update()
     {
-        if (kidDrag != null && kidDrag.isPlaced)
-        {
-            thoughtBubble.SetActive(false);
-            return;
-        }
+        
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(kid.position);
         thoughtBubble.transform.position = screenPos + offset;
