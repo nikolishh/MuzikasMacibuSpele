@@ -41,8 +41,6 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Start is running");
-
         questionImage.gameObject.SetActive(true);
         yesButton.gameObject.SetActive(true);
         noButton.gameObject.SetActive(true);
