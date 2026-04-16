@@ -16,6 +16,7 @@ public static class LevelProgress
         if (level >= current)
         {
             PlayerPrefs.SetInt(gameName + "_UnlockedLevel", level + 1);
+            PlayerPrefs.Save();
         }
     }
 }

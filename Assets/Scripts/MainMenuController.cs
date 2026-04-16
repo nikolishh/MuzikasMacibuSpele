@@ -5,21 +5,21 @@ public class MainMenuController : MonoBehaviour
 {
     public void LoadInstrumentGame()
     {
-        SceneManager.LoadScene("InstrumentGame");  // EXACT scene name
+        SceneManager.LoadScene("InstrumentGame");
     }
 
     public void LoadInstrumentGame2()
     {
-        SceneManager.LoadScene("InstrumentGame2");  // EXACT scene name
+        SceneManager.LoadScene("InstrumentGame2");
     }
 
     public void LoadRhythmGame()
     {
-        SceneManager.LoadScene("RhythmGame");  // EXACT scene name
+        SceneManager.LoadScene("RhythmGame");
     }
 
     public void LoadQuizGame()
     {
-        SceneManager.LoadScene("QuizGame");  // EXACT scene name
+        SceneManager.LoadScene("QuizGame");
     }
 }

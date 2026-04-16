@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuizGame2.unity
     guid: 2d32b3f24cffb254e96ac16e3f86700d
+  - enabled: 1
+    path: Assets/Scenes/QuizGame3.unity
+    guid: c800f7ef77345af46866ecb669bd8599
   m_configObjects: {}

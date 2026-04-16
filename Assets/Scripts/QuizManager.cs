@@ -99,6 +99,20 @@ public class QuizManager : MonoBehaviour
         endPanel.SetActive(true);
 
         finalScoreText.text = "PUNKTI: " + score;
+
+        if (score >= 10)
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            if (sceneName == "QuizGame")
+            {
+                LevelProgress.UnlockLevel("QuizGame", 1);
+            }
+            else if (sceneName == "QuizGame2")
+            {
+                LevelProgress.UnlockLevel("QuizGame", 2);
+            }
+        }
     }
 
     void Answer(bool playerAnswer)
@@ -126,7 +140,7 @@ public class QuizManager : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("QuizGame");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()
