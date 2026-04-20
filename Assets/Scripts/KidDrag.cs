@@ -6,18 +6,23 @@ public class KidDrag : MonoBehaviour
 {
     private Vector3 startPosition;
     private bool isDragging = false;
-    public bool isPlaced = false; // NEW
-
-    public string correctInstrument; // set in Inspector
+    public bool isPlaced = false;
+    public string correctInstrument;
+    public InstrumentGameManager gameManager;
 
     void Start()
     {
         startPosition = transform.position;
+
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<InstrumentGameManager>();
+        }
     }
 
     void OnMouseDown()
     {
-        if (isPlaced) return; // can't drag if already placed
+        if (isPlaced) return;
         isDragging = true;
     }
 
@@ -37,29 +42,38 @@ public class KidDrag : MonoBehaviour
 
         isDragging = false;
 
-        // Check all colliders overlapping kid's collider
         Collider2D kidCollider = GetComponent<Collider2D>();
-        Collider2D[] hits = Physics2D.OverlapBoxAll(kidCollider.bounds.center, kidCollider.bounds.size, 0f);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(
+            kidCollider.bounds.center,
+            kidCollider.bounds.size,
+            0f
+        );
 
         bool snapped = false;
 
         foreach (Collider2D hit in hits)
         {
             Instrument instrument = hit.GetComponent<Instrument>();
+
             if (instrument != null && instrument.instrumentName == correctInstrument)
             {
-                // Snap to the instrument's stand point
                 transform.position = instrument.standPoint.position;
                 snapped = true;
-                isPlaced = true; // mark as placed
+                isPlaced = true;
+
+                if (gameManager != null)
+                    gameManager.PlayCorrect();
+
                 break;
             }
         }
 
         if (!snapped)
         {
-            // Return to start if wrong
             transform.position = startPosition;
+
+            if (gameManager != null)
+                gameManager.PlayWrong();
         }
     }
 }

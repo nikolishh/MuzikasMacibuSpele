@@ -23,8 +23,6 @@ public class KidHoverManager : MonoBehaviour
 
     void Update()
     {
-        
-
         Vector3 screenPos = Camera.main.WorldToScreenPoint(kid.position);
         thoughtBubble.transform.position = screenPos + offset;
 
