@@ -7804,16 +7804,16 @@ MonoBehaviour:
   finalScoreText: {fileID: 2015069805}
   timePerQuestion: 10
   questionSprites:
-  - {fileID: 21300000, guid: 409ba5825900be74f8542e076e56ec71, type: 3}
-  - {fileID: 21300000, guid: 4d202536fd7a3dc4a9f333d5d0579c82, type: 3}
-  - {fileID: 21300000, guid: 7da861b90afed3a4bb28bb315c8fad6c, type: 3}
-  - {fileID: 21300000, guid: 3bf3d9cdb5fe36945be169b0b8382a7b, type: 3}
-  - {fileID: 21300000, guid: 0c1c33040a13b58469abe42896acf403, type: 3}
-  - {fileID: 21300000, guid: 17baccd89034cbf4bb42cd76fa790fce, type: 3}
-  - {fileID: 21300000, guid: 35fcccd48859c6a4db01c219e085601a, type: 3}
-  - {fileID: 21300000, guid: bf7beae622c6dcc48ade413eece014ac, type: 3}
-  - {fileID: 21300000, guid: a78bd19826a17ac44a67bee8a6e295aa, type: 3}
-  - {fileID: 21300000, guid: 0350760e2d6bcc043879e8f0eacb697e, type: 3}
+  - {fileID: 21300000, guid: 442731738f9acb04fa519d3c221dc72c, type: 3}
+  - {fileID: 21300000, guid: f00af4d758a6b1e4d95809c019a10a82, type: 3}
+  - {fileID: 21300000, guid: d38ddf982d34e6a4fb4b1d4ace13e87b, type: 3}
+  - {fileID: 21300000, guid: d1d9c0f746e9bbe43a9531c372ca67f4, type: 3}
+  - {fileID: 21300000, guid: e5a276719398b1642bcfec82286046ef, type: 3}
+  - {fileID: 21300000, guid: afed24a8a3a681949b661ad714e9f32c, type: 3}
+  - {fileID: 21300000, guid: 7cec1f541ff5ea5428aef885c90b9790, type: 3}
+  - {fileID: 21300000, guid: bb09de801f37d0b42ba2e07d006a1fdc, type: 3}
+  - {fileID: 21300000, guid: e7907c3916b49c54b83de8e38af6c0cf, type: 3}
+  - {fileID: 21300000, guid: 9ce8479cfe4573241b7103343aa3a314, type: 3}
   answers: 01000001010101010101
   audioSource: {fileID: 2070093984}
   correctSound: {fileID: 8300000, guid: ead2a26a2196d424fb1287dfd3a48fc6, type: 3}

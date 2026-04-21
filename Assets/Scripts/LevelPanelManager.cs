@@ -30,27 +30,21 @@ public class LevelPanelManager : MonoBehaviour
 
     void SetupLevels()
     {
-        int unlockedLevel = LevelProgress.GetUnlockedLevel(currentGame);
-
         for (int i = 0; i < levelButtons.Length; i++)
         {
             int levelIndex = i + 1;
 
             levelButtons[i].GetComponentInChildren<Text>().text = "Level " + levelIndex;
 
-            levelButtons[i].onClick.RemoveAllListeners();
+            bool unlocked = LevelSystem.IsLevelUnlocked(currentGame, levelIndex);
 
-            int capturedIndex = levelIndex;
-
-            bool isUnlocked = levelIndex <= unlockedLevel;
-
-            levelButtons[i].interactable = isUnlocked;
+            levelButtons[i].interactable = unlocked;
 
             if (lockIcons != null && i < lockIcons.Length)
-            {
-                lockIcons[i].SetActive(!isUnlocked);
-            }
+                lockIcons[i].SetActive(!unlocked);
 
+            int capturedIndex = levelIndex;
+            levelButtons[i].onClick.RemoveAllListeners();
             levelButtons[i].onClick.AddListener(() => LoadLevel(capturedIndex));
         }
     }

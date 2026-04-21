@@ -102,16 +102,14 @@ public class QuizManager : MonoBehaviour
 
         if (score >= 10)
         {
-            string sceneName = SceneManager.GetActiveScene().name;
+            string scene = SceneManager.GetActiveScene().name;
+            Debug.Log("Saved QuizGame Level 1");
 
-            if (sceneName == "QuizGame")
-            {
-                LevelProgress.UnlockLevel("QuizGame", 1);
-            }
-            else if (sceneName == "QuizGame2")
-            {
-                LevelProgress.UnlockLevel("QuizGame", 2);
-            }
+            if (scene == "QuizGame")
+                LevelSystem.CompleteLevel("QuizGame", 1);
+
+            else if (scene == "QuizGame2")
+                LevelSystem.CompleteLevel("QuizGame", 2);
         }
     }
 

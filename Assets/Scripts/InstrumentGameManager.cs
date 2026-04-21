@@ -31,7 +31,7 @@ public class InstrumentGameManager : MonoBehaviour
             }
         }
 
-        LevelProgress.UnlockLevel("InstrumentGame", 1);
+        LevelSystem.CompleteLevel("InstrumentGame", 1);
 
         StartCoroutine(ShowEndPanel());
 
@@ -71,7 +71,7 @@ public class InstrumentGameManager : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("InstrumentGame");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()
