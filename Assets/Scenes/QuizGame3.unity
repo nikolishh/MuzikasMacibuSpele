@@ -7814,7 +7814,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6ee0f5382a9b0d34caaa2bed5b1d962b, type: 3}
   - {fileID: 21300000, guid: c30406f1066bba443a64df8ddc23f606, type: 3}
   - {fileID: 21300000, guid: 795a303273cff064683dbc4b7d9f94e5, type: 3}
-  answers: 01000001010101010101
+  answers: 00010100010001000100
   audioSource: {fileID: 2070093984}
   correctSound: {fileID: 8300000, guid: ead2a26a2196d424fb1287dfd3a48fc6, type: 3}
   wrongSound: {fileID: 8300000, guid: a39f7c8000af8fe4c8cd5474db4e0a63, type: 3}
